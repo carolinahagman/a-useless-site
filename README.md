@@ -1,9 +1,10 @@
 # styling
 
-- [ ] create tennis ball
-- [ ] button for raining balls
-- [ ] background gradient
-- [ ] Flora, (icon or image???)
+- [x] create tennis ball
+- [x] button for raining balls
+- [x] background gradient
+- [x] Flora
+- [ ] Media queries
 
 # template
 
