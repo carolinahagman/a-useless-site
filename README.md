@@ -1,3 +1,5 @@
+![image](assets/flora.jpg)
+
 # styling
 
 - [x] create tennis ball
