@@ -14,6 +14,7 @@
 
 ## basic functionality
 
+- [x] remove instruction when touch ball
 - [ ] click and drag ball around
 - [ ] verify it works on both mobile and desktop
 - [ ] ball should maintain velocity when "thrown"
