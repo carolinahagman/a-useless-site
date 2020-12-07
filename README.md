@@ -5,7 +5,7 @@
 - [x] background gradient
 - [x] Flora
 - [ ] Media queries
-- [ ] animation for raining balls
+- [x] animation for raining balls
 
 # template
 

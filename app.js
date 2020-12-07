@@ -45,6 +45,8 @@ const dragBallMobile = (e) => {
   ball.style.top = ball.offsetTop - pos2 + "px";
   ball.style.left = ball.offsetLeft - pos1 + "px";
 };
+
+//create the falling tennis balls and randomize color, position, duration
 const rain = () => {
   for (let index = 0; index < 150; index++) {
     const colorfulBall = document.createElement("div");
@@ -89,3 +91,4 @@ ball.addEventListener("touchstart", (e) => {
 });
 
 button.addEventListener("click", rain);
+button.addEventListener("touchstart", rain);
