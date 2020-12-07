@@ -15,8 +15,8 @@
 ## basic functionality
 
 - [x] remove instruction when touch ball
-- [ ] click and drag ball around
-- [ ] verify it works on both mobile and desktop
+- [x] click and drag ball around
+- [x] verify it works on both mobile and desktop
 - [ ] ball should maintain velocity when "thrown"
 - [ ] make flora move
 - [ ] make flora move in direction of ball
