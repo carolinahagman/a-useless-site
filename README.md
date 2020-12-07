@@ -1,4 +1,5 @@
-![image](assets/flora.jpg)
+
+<img src="assets/flora.JPG" align="center" height="400" width="400" >
 
 # styling
 
