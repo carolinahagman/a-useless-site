@@ -5,6 +5,7 @@
 - [x] background gradient
 - [x] Flora
 - [ ] Media queries
+- [ ] animation for raining balls
 
 # template
 
@@ -23,7 +24,7 @@
 - [ ] set boundaries for the ball
 - [ ] bounce in a mirrored direction
 - [ ] when flora catches ball, play sound
-- [ ] when button is pressed, create many balls(divs)
-  - [ ] make the balls random colors
-  - [ ] randomize position
-  - [ ] randomize velocity
+- [x] when button is pressed, create many balls(divs)
+  - [x] make the balls random colors
+  - [x] randomize position
+  - [x] randomize velocity
