@@ -7,7 +7,6 @@ const sittingDog = document.querySelector("#dog-sitting");
 const standingDog = document.querySelector("#dog-standing");
 const dogContainer = document.querySelector(".dog-container");
 const main = document.querySelector("main");
-
 const randomColors = [
   "hotpink",
   "yellow",
@@ -16,6 +15,8 @@ const randomColors = [
   "mediumorchid",
   "lightgreen",
 ];
+const sound = new Audio();
+sound.src = "/assets/yay.mp3";
 
 let pos1 = 0,
   pos2 = 0,
@@ -34,14 +35,13 @@ const dragBall = (e) => {
   ball.style.top = ball.offsetTop - pos2 + "px";
   ball.style.left = ball.offsetLeft - pos1 + "px";
 };
+
 //make the ball draggable on mobile
 const dragBallMobile = (e) => {
-  // calculate the new cursor position:
   pos1 = pos3 - e.changedTouches[0].clientX;
   pos2 = pos4 - e.changedTouches[0].clientY;
   pos3 = e.changedTouches[0].clientX;
   pos4 = e.changedTouches[0].clientY;
-  // set the element's new position:
   ball.style.top = ball.offsetTop - pos2 + "px";
   ball.style.left = ball.offsetLeft - pos1 + "px";
 };
@@ -63,7 +63,16 @@ const rain = () => {
     main.appendChild(colorfulBall);
   }
 };
-// On desktop
+button.addEventListener("click", () => {
+  rain();
+  sound.play();
+});
+button.addEventListener("touchstart", () => {
+  rain();
+  sound.play();
+});
+
+// on desktop
 ball.addEventListener("mousedown", (e) => {
   instruction.style.display = "none";
   e.preventDefault();
@@ -77,18 +86,13 @@ ball.addEventListener("mousedown", (e) => {
   });
 });
 
-//On mobile
+//on mobile
 ball.addEventListener("touchstart", (e) => {
   instruction.style.display = "none";
-  // get the mouse cursor position at startup:
   pos3 = e.clientX;
   pos4 = e.clientY;
-  // call a function whenever the cursor moves:
   document.addEventListener("touchmove", dragBallMobile);
   document.addEventListener("touchend", () => {
     document.removeEventListener("touchmove", dragBallMobile);
   });
 });
-
-button.addEventListener("click", rain);
-button.addEventListener("touchstart", rain);
