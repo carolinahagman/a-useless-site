@@ -19,6 +19,7 @@ const sound = new Audio();
 sound.src = "/assets/yay.mp3";
 const toySquek = new Audio();
 toySquek.src = "/assets/toy.mp3";
+let squeekable = true;
 
 let pos1 = 0,
   pos2 = 0,
@@ -79,10 +80,21 @@ const activateDog = () => {
       movingY = false;
     }
     if (!movingX && !movingY) {
+      if (standingDog.style.display === "block") {
+        if (squeekable) {
+          toySquek.pause();
+          toySquek.currentTime = 0;
+          toySquek.play();
+          squeekable = false;
+          setTimeout(() => {
+            squeekable = true;
+          }, 2000);
+        }
+      }
       sittingDog.style.display = "block";
       standingDog.style.display = "none";
     }
-  }, 15);
+  }, 30);
 };
 
 //create the falling tennis balls and randomize color, position, duration

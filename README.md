@@ -46,7 +46,7 @@ Or open the live verison [here](https://a-useless-site.vercel.app/)
 - [x] make flora move in direction of ball
 - [ ] set boundaries for the ball
 - [ ] bounce in a mirrored direction
-- [ ] when flora catches ball, play sound
+- [x] when flora catches ball, play sound
 - [x] when button is pressed, create many balls(divs)
   - [x] make the balls random colors
   - [x] randomize position
