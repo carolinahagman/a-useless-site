@@ -4,7 +4,7 @@
 
 ## throw the ball
 
-The assignment was to build a useless website using only HTML, CSS and JavaScript. No third party libraries such as jQuery or React is allowed.
+The assignment was to build a useless website using only HTML, CSS and JavaScript. No third party libraries such as jQuery or React was allowed.
 
 ## Installation
 
