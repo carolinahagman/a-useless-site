@@ -17,15 +17,13 @@ const randomColors = [
 ];
 const sound = new Audio();
 sound.src = "/assets/yay.mp3";
+const toySquek = new Audio();
+toySquek.src = "/assets/toy.mp3";
 
 let pos1 = 0,
   pos2 = 0,
   pos3 = 0,
   pos4 = 0;
-// let dogPos1 = 0,
-//   dogPos2 = 0,
-//   dogPos3 = 0,
-//   dogPos4 = 0;
 
 //make the ball draggable
 const dragBall = (e) => {
@@ -84,7 +82,7 @@ const activateDog = () => {
       sittingDog.style.display = "block";
       standingDog.style.display = "none";
     }
-  }, 10);
+  }, 15);
 };
 
 //create the falling tennis balls and randomize color, position, duration
