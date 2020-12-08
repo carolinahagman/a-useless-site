@@ -9,16 +9,12 @@ const dogContainer = document.querySelector(".dog-container");
 const main = document.querySelector("main");
 const body = document.querySelector("body");
 const backgroundColor = [
-  "linear-gradient(162.61deg, #f6f0ea -0.68%, #f1dfd1 100%)",
+  "linear-gradient(162.61deg, #B0F3F1 -0.68%, #FFCFDF 100%)",
   "linear-gradient(326deg, #a4508b 0%, #5f0a87 74%)",
   "linear-gradient(to top left, #a8ceff 0%, #ff8ab3 81%)",
   "linear-gradient(to bottom right, #a8ffae 0%, #fdff8a 81%)",
   "linear-gradient(315deg, #f39f86 0%, #f9d976 74%)",
 ];
-window.addEventListener("load", () => {
-  body.style.background =
-    backgroundColor[Math.floor(Math.random() * Math.floor(4))];
-});
 
 const randomColors = [
   "hotpink",
@@ -39,6 +35,12 @@ let pos1 = 0,
   pos3 = 0,
   pos4 = 0;
 
+//change background on load
+window.addEventListener("load", () => {
+  body.style.background =
+    backgroundColor[Math.floor(Math.random() * Math.floor(4))];
+});
+
 //make the ball draggable
 const dragBall = (e) => {
   e.preventDefault();
@@ -47,9 +49,21 @@ const dragBall = (e) => {
   pos2 = pos4 - e.clientY;
   pos3 = e.clientX;
   pos4 = e.clientY;
-  // set the element's new position:
-  ball.style.top = ball.offsetTop - pos2 + "px";
-  ball.style.left = ball.offsetLeft - pos1 + "px";
+  // set the element's new position and stay inside the window
+  console.log(ball.offsetTop - pos2);
+  console.log(window.innerHeight);
+  ball.style.top =
+    ball.offsetTop - pos2 > 0
+      ? ball.offsetTop - pos2 < window.innerHeight - 50
+        ? ball.offsetTop - pos2 + "px"
+        : `${window.innerHeight - 50}px`
+      : "0px";
+  ball.style.left =
+    ball.offsetLeft - pos1 > 0
+      ? ball.offsetLeft - pos1 < window.innerWidth - 50
+        ? ball.offsetLeft - pos1 + "px"
+        : `${window.innerWidth - 50}px`
+      : "0px";
 };
 
 //make the ball draggable on mobile
@@ -72,7 +86,7 @@ const activateDog = () => {
     const dogPosTop = dogContainer.offsetTop;
     const dogPosLeft = dogContainer.offsetLeft;
 
-    if (ballPosLeft - dogPosLeft > 30 || ballPosLeft - dogPosLeft < -30) {
+    if (ballPosLeft - dogPosLeft > 40 || ballPosLeft - dogPosLeft < -30) {
       sittingDog.style.display = "none";
       standingDog.style.display = "block";
       dogContainer.style.left =
@@ -106,6 +120,11 @@ const activateDog = () => {
       }
       sittingDog.style.display = "block";
       standingDog.style.display = "none";
+    }
+    if (ballPosLeft < dogPosLeft) {
+      dogContainer.style.transform = "rotateY(180deg)";
+    } else {
+      dogContainer.style.transform = "rotateY(0deg)";
     }
   }, 30);
 };

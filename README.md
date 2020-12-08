@@ -38,7 +38,7 @@ Or open the live verison [here](https://a-useless-site.vercel.app/)
 - [ ] ball should maintain velocity when "thrown"
 - [x] make flora move
 - [x] make flora move in direction of ball
-- [ ] set boundaries for the ball
+- [x] set boundaries for the ball
 - [ ] bounce in a mirrored direction
 - [x] when flora catches ball, play sound
 - [x] when button is pressed, create many balls(divs)
