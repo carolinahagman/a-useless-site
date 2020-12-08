@@ -7,6 +7,19 @@ const sittingDog = document.querySelector("#dog-sitting");
 const standingDog = document.querySelector("#dog-standing");
 const dogContainer = document.querySelector(".dog-container");
 const main = document.querySelector("main");
+const body = document.querySelector("body");
+const backgroundColor = [
+  "linear-gradient(162.61deg, #f6f0ea -0.68%, #f1dfd1 100%)",
+  "linear-gradient(326deg, #a4508b 0%, #5f0a87 74%)",
+  "linear-gradient(to top left, #a8ceff 0%, #ff8ab3 81%)",
+  "linear-gradient(to bottom right, #a8ffae 0%, #fdff8a 81%)",
+  "linear-gradient(315deg, #f39f86 0%, #f9d976 74%)",
+];
+window.addEventListener("load", () => {
+  body.style.background =
+    backgroundColor[Math.floor(Math.random() * Math.floor(4))];
+});
+
 const randomColors = [
   "hotpink",
   "yellow",
