@@ -22,6 +22,10 @@ let pos1 = 0,
   pos2 = 0,
   pos3 = 0,
   pos4 = 0;
+// let dogPos1 = 0,
+//   dogPos2 = 0,
+//   dogPos3 = 0,
+//   dogPos4 = 0;
 
 //make the ball draggable
 const dragBall = (e) => {
@@ -45,9 +49,47 @@ const dragBallMobile = (e) => {
   ball.style.top = ball.offsetTop - pos2 + "px";
   ball.style.left = ball.offsetLeft - pos1 + "px";
 };
+//make the dog chase after the ball
+const activateDog = () => {
+  let movingX = false;
+  let movingY = false;
+  setInterval(() => {
+    const ballPosTop = ball.offsetTop;
+    const ballPosLeft = ball.offsetLeft;
+
+    const dogPosTop = dogContainer.offsetTop;
+    const dogPosLeft = dogContainer.offsetLeft;
+
+    if (ballPosLeft - dogPosLeft > 50 || ballPosLeft - dogPosLeft < -50) {
+      sittingDog.style.display = "none";
+      standingDog.style.display = "block";
+      dogContainer.style.left =
+        ballPosLeft < dogPosLeft
+          ? `${dogPosLeft - 3}px`
+          : `${dogPosLeft + 3}px`;
+      movingX = true;
+    } else {
+      movingX = false;
+    }
+    if (ballPosTop - dogPosTop > 50 || ballPosTop - dogPosTop < -50) {
+      sittingDog.style.display = "none";
+      standingDog.style.display = "block";
+      dogContainer.style.top =
+        ballPosTop < dogPosTop ? `${dogPosTop - 3}px` : `${dogPosTop + 3}px`;
+      movingY = true;
+    } else {
+      movingY = false;
+    }
+    if (!movingX && !movingY) {
+      sittingDog.style.display = "block";
+      standingDog.style.display = "none";
+    }
+  }, 10);
+};
 
 //create the falling tennis balls and randomize color, position, duration
 const rain = () => {
+  const rainArray = [];
   for (let index = 0; index < 150; index++) {
     const colorfulBall = document.createElement("div");
     colorfulBall.classList.add("tennis-ball");
@@ -58,10 +100,18 @@ const rain = () => {
     colorfulBall.style.left = `${Math.floor(
       Math.random() * Math.floor(window.innerWidth)
     )}px`;
-    colorfulBall.style.animationDelay = `${Math.random() * 3}s`;
-    colorfulBall.style.animationDuration = `${Math.random() + 3}s`;
+    colorfulBall.style.animationDelay = `${Math.random() * 1.9}s`;
+    colorfulBall.style.animationDuration = `${
+      (Math.random() * 1000) / 8 + 1300
+    }ms`;
     main.appendChild(colorfulBall);
+    rainArray.push(colorfulBall);
   }
+  setTimeout(() => {
+    rainArray.forEach((el) => {
+      el.remove();
+    });
+  }, 6000);
 };
 button.addEventListener("click", () => {
   rain();
@@ -76,6 +126,7 @@ button.addEventListener("touchstart", () => {
 ball.addEventListener("mousedown", (e) => {
   instruction.style.display = "none";
   e.preventDefault();
+  activateDog();
   // get the mouse cursor position at startup:
   pos3 = e.clientX;
   pos4 = e.clientY;
@@ -91,6 +142,7 @@ ball.addEventListener("touchstart", (e) => {
   instruction.style.display = "none";
   pos3 = e.clientX;
   pos4 = e.clientY;
+  activateDog();
   document.addEventListener("touchmove", dragBallMobile);
   document.addEventListener("touchend", () => {
     document.removeEventListener("touchmove", dragBallMobile);
