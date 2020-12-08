@@ -59,7 +59,7 @@ const activateDog = () => {
     const dogPosTop = dogContainer.offsetTop;
     const dogPosLeft = dogContainer.offsetLeft;
 
-    if (ballPosLeft - dogPosLeft > 20 || ballPosLeft - dogPosLeft < -20) {
+    if (ballPosLeft - dogPosLeft > 30 || ballPosLeft - dogPosLeft < -30) {
       sittingDog.style.display = "none";
       standingDog.style.display = "block";
       dogContainer.style.left =
@@ -70,7 +70,7 @@ const activateDog = () => {
     } else {
       movingX = false;
     }
-    if (ballPosTop - dogPosTop > 20 || ballPosTop - dogPosTop < -20) {
+    if (ballPosTop - dogPosTop > 30 || ballPosTop - dogPosTop < -30) {
       sittingDog.style.display = "none";
       standingDog.style.display = "block";
       dogContainer.style.top =
