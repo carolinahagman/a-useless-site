@@ -10,7 +10,7 @@ const main = document.querySelector("main");
 const body = document.querySelector("body");
 const backgroundColor = [
   "linear-gradient(162.61deg, #B0F3F1 -0.68%, #FFCFDF 100%)",
-  "linear-gradient(326deg, #a4508b 0%, #5f0a87 74%)",
+  "linear-gradient(326deg, #F6FC9C 0%, #EAF818 74%)",
   "linear-gradient(to top left, #a8ceff 0%, #ff8ab3 81%)",
   "linear-gradient(to bottom right, #a8ffae 0%, #fdff8a 81%)",
   "linear-gradient(315deg, #f39f86 0%, #f9d976 74%)",
@@ -26,10 +26,10 @@ const randomColors = [
 ];
 const sound = new Audio();
 sound.src = "/assets/yay.mp3";
-const toySquek = new Audio();
-toySquek.src = "/assets/toy.mp3";
-let squeekable = true;
 
+const toySquek = new Audio();
+let squeekable = true;
+let active = false;
 let pos1 = 0,
   pos2 = 0,
   pos3 = 0,
@@ -77,56 +77,61 @@ const dragBallMobile = (e) => {
 };
 //make the dog chase after the ball
 const activateDog = () => {
+  toySquek.play();
+  toySquek.src = "/assets/toy.mp3";
   let movingX = false;
   let movingY = false;
-  setInterval(() => {
-    const ballPosTop = ball.offsetTop;
-    const ballPosLeft = ball.offsetLeft;
+  if (!active) {
+    active = true;
+    setInterval(() => {
+      const ballPosTop = ball.offsetTop;
+      const ballPosLeft = ball.offsetLeft;
 
-    const dogPosTop = dogContainer.offsetTop;
-    const dogPosLeft = dogContainer.offsetLeft;
+      const dogPosTop = dogContainer.offsetTop;
+      const dogPosLeft = dogContainer.offsetLeft;
 
-    if (ballPosLeft - dogPosLeft > 40 || ballPosLeft - dogPosLeft < -30) {
-      sittingDog.style.display = "none";
-      standingDog.style.display = "block";
-      dogContainer.style.left =
-        ballPosLeft < dogPosLeft
-          ? `${dogPosLeft - 3}px`
-          : `${dogPosLeft + 3}px`;
-      movingX = true;
-    } else {
-      movingX = false;
-    }
-    if (ballPosTop - dogPosTop > 30 || ballPosTop - dogPosTop < -30) {
-      sittingDog.style.display = "none";
-      standingDog.style.display = "block";
-      dogContainer.style.top =
-        ballPosTop < dogPosTop ? `${dogPosTop - 3}px` : `${dogPosTop + 3}px`;
-      movingY = true;
-    } else {
-      movingY = false;
-    }
-    if (!movingX && !movingY) {
-      if (standingDog.style.display === "block") {
-        if (squeekable) {
-          toySquek.pause();
-          toySquek.currentTime = 0;
-          toySquek.play();
-          squeekable = false;
-          setTimeout(() => {
-            squeekable = true;
-          }, 2000);
-        }
+      if (ballPosLeft - dogPosLeft > 40 || ballPosLeft - dogPosLeft < -30) {
+        sittingDog.style.display = "none";
+        standingDog.style.display = "block";
+        dogContainer.style.left =
+          ballPosLeft < dogPosLeft
+            ? `${dogPosLeft - 3}px`
+            : `${dogPosLeft + 3}px`;
+        movingX = true;
+      } else {
+        movingX = false;
       }
-      sittingDog.style.display = "block";
-      standingDog.style.display = "none";
-    }
-    if (ballPosLeft < dogPosLeft) {
-      dogContainer.style.transform = "rotateY(180deg)";
-    } else {
-      dogContainer.style.transform = "rotateY(0deg)";
-    }
-  }, 30);
+      if (ballPosTop - dogPosTop > 30 || ballPosTop - dogPosTop < -30) {
+        sittingDog.style.display = "none";
+        standingDog.style.display = "block";
+        dogContainer.style.top =
+          ballPosTop < dogPosTop ? `${dogPosTop - 3}px` : `${dogPosTop + 3}px`;
+        movingY = true;
+      } else {
+        movingY = false;
+      }
+      if (!movingX && !movingY) {
+        if (standingDog.style.display === "block") {
+          if (squeekable) {
+            toySquek.pause();
+            toySquek.currentTime = 0;
+            toySquek.play();
+            squeekable = false;
+            setTimeout(() => {
+              squeekable = true;
+            }, 2000);
+          }
+        }
+        sittingDog.style.display = "block";
+        standingDog.style.display = "none";
+      }
+      if (ballPosLeft < dogPosLeft) {
+        dogContainer.style.transform = "rotateY(180deg)";
+      } else {
+        dogContainer.style.transform = "rotateY(0deg)";
+      }
+    }, 30);
+  }
 };
 
 //create the falling tennis balls and randomize color, position, duration
