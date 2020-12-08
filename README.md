@@ -1,33 +1,34 @@
-
 <img src="assets/flora.JPG" align="center" height="400" width="400" >
 
-# styling
+# a useless site
 
-- [x] create tennis ball
-- [x] button for raining balls
-- [x] background gradient
-- [x] Flora
-- [ ] Media queries
-- [x] animation for raining balls
+## throw the ball
 
-# template
+The assignment was to build a useless website
 
-- [x] add constant elements (flora img, button, the original ball)
+## Built With
 
-# script
+- Javascript
+- HTML
+- CSS
 
-## basic functionality
+## Installation
 
-- [x] remove instruction when touch ball
-- [x] click and drag ball around
-- [x] verify it works on both mobile and desktop
-- [ ] ball should maintain velocity when "thrown"
-- [ ] make flora move
-- [ ] make flora move in direction of ball
-- [ ] set boundaries for the ball
-- [ ] bounce in a mirrored direction
-- [ ] when flora catches ball, play sound
-- [x] when button is pressed, create many balls(divs)
-  - [x] make the balls random colors
-  - [x] randomize position
-  - [x] randomize velocity
+Clone the repository to your computer
+
+```
+$ git clone https://github.com/carolinahagman/a-useless-site.git
+```
+
+Open index.html in your preferred browser
+
+Or open the live verison [here](https://a-useless-site.vercel.app/)
+
+## Author
+
+- Carolina Hagman
+
+## Testers
+
+-
+-
