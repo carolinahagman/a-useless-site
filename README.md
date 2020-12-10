@@ -15,7 +15,7 @@ $ git clone https://github.com/carolinahagman/a-useless-site.git
 
 Open index.html in your preferred browser
 
-Or open the live verison [here](https://a-useless-site.vercel.app/)
+Or open the live verison [here](https://throw-the-ball.vercel.app/)
 
 ## My check list
 
