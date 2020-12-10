@@ -131,3 +131,23 @@ button:focus {
   position: absolute;
   height: 100%;
 }
+
+@media (min-width: 1200px) {
+  .dog-container {
+    height: 200px;
+    width: 210px;
+  }
+
+  #main-ball {
+    width: 70px;
+    height: 70px;
+  }
+
+  #instruction {
+    font-size: 2rem;
+  }
+  #primary-btn {
+    font-size: 2rem;
+    width: 450px;
+  }
+}
