@@ -138,6 +138,7 @@ const activateDog = () => {
 
 //create the falling tennis balls and randomize color, position, duration
 const rain = () => {
+  // const particle1 = new Particle(500, 100);
   const rainArray = [];
   for (let index = 0; index < 250; index++) {
     const colorfulBall = document.createElement("div");
@@ -150,9 +151,7 @@ const rain = () => {
       Math.random() * Math.floor(window.innerWidth)
     )}px`;
     colorfulBall.style.animationDelay = `${Math.random() * 1.9}s`;
-    colorfulBall.style.animationDuration = `${
-      (Math.random() * 1000) / 8 + 1300
-    }ms`;
+    colorfulBall.style.animationDuration = `${1}s`;
     main.appendChild(colorfulBall);
     rainArray.push(colorfulBall);
   }
@@ -163,52 +162,76 @@ const rain = () => {
   }, 6000);
 };
 
-// the new version. hope it works
-// const rain = () => {
-//   const canvas = document.createElement("canvas");
-//   main.appendChild("canvas");
-//   const ctx = canvas.getContext("2d");
-//   const particlesOnScreen = 245;
-//   const particlesArray = [];
-//   const w, h;
-//   w = canvas.width = window.innerWidth;
-//   h = canvas.height = window.innerHeight;
+const canvas = document.createElement("canvas");
+main.appendChild(canvas);
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let ballArray = [];
 
-//   function random(min, max) {
-//     return min + Math.random() * (max - min + 1);
-//   }
+class Particle {
+  constructor(x, y, weight, animationDelay, color, size) {
+    this.x = x;
+    this.y = y;
+    this.size = size;
+    this.weight = weight;
+    this.animationDelay = animationDelay;
+    this.animationStarted = false;
+    this.color = color;
+    // console.log(this);
+  }
+  update() {
+    setTimeout(() => {
+      this.animationStarted = true;
+    }, this.animationDelay);
+    if (this.animationStarted) {
+      this.weight += 0.2;
+      this.y += this.weight;
+    }
+  }
 
-//   for (let index = 0; index < particlesOnScreen; index++) {
-//     particlesArray.push({
-//       x: Math.random() * w,
-//       y: Math.random() * h,
-//       speedX: random(-11, 11),
-//       speedY: random(7, 15),
-//       radius: 0.5,
-//     });
-//   }
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    // ctx.arc(this.x+2,)
+    ctx.closePath();
+    ctx.fill();
+  }
+}
+function init() {
+  for (let index = 0; index < 250; index++) {
+    ballArray[index] = new Particle(
+      Math.random() * window.innerWidth,
+      0 - 25,
+      Math.floor(Math.random() * 15) + 5,
+      Math.random() * 1.9 * 1000,
+      randomColors[Math.floor(Math.random() * randomColors.length)],
+      Math.max(Math.random() * 25, 10)
+    );
+    // animate();
+  }
+  console.log(ballArray.length);
+}
 
-//   function drawSnowFlakes() {
-//     for (let index = 0; index < particlesArray.length; index++) {
-//       const gradient = ctx.createRadialGradient(
-//         particlesArray[i].x,
-//         particlesArray[i].y,
-//         0,
-//         particlesArray[i].x,
-//         particlesArray[i].y,
-//         particlesArray[i].radius
-//       );
-//       gradient.addColorStop(0,);
-//     }
-//   }
-// };
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ballArray.forEach((ball) => {
+    ball.update();
+    ball.draw();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
 
 button.addEventListener("click", () => {
-  rain();
+  init();
+  // rain();
+
   sound.play();
 });
 button.addEventListener("touchstart", () => {
-  rain();
+  init();
   sound.play();
 });
 
