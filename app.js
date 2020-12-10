@@ -16,6 +16,9 @@ const backgroundColor = [
   "linear-gradient(315deg, #f39f86 0%, #f9d976 74%)",
 ];
 
+const speedX = window.innerWidth * 0.005;
+const speedY = window.innerHeight * 0.005;
+
 const randomColors = [
   "hotpink",
   "yellow",
@@ -26,7 +29,6 @@ const randomColors = [
 ];
 const sound = new Audio();
 sound.src = "/assets/yay.mp3";
-
 const toySquek = new Audio();
 let squeekable = true;
 let active = false;
@@ -38,7 +40,7 @@ let pos1 = 0,
 //change background on load
 window.addEventListener("load", () => {
   body.style.background =
-    backgroundColor[Math.floor(Math.random() * Math.floor(4))];
+    backgroundColor[Math.floor(Math.random() * backgroundColor.length)];
 });
 
 //make the ball draggable
@@ -77,7 +79,7 @@ const dragBallMobile = (e) => {
 };
 //make the dog chase after the ball
 const activateDog = () => {
-  toySquek.play();
+  // toySquek.play();
   toySquek.src = "/assets/toy.mp3";
   let movingX = false;
   let movingY = false;
@@ -95,8 +97,8 @@ const activateDog = () => {
         standingDog.style.display = "block";
         dogContainer.style.left =
           ballPosLeft < dogPosLeft
-            ? `${dogPosLeft - 3}px`
-            : `${dogPosLeft + 3}px`;
+            ? `${dogPosLeft - speedX}px`
+            : `${dogPosLeft + speedX}px`;
         movingX = true;
       } else {
         movingX = false;
@@ -105,7 +107,9 @@ const activateDog = () => {
         sittingDog.style.display = "none";
         standingDog.style.display = "block";
         dogContainer.style.top =
-          ballPosTop < dogPosTop ? `${dogPosTop - 3}px` : `${dogPosTop + 3}px`;
+          ballPosTop < dogPosTop
+            ? `${dogPosTop - speedY}px`
+            : `${dogPosTop + speedY}px`;
         movingY = true;
       } else {
         movingY = false;
@@ -142,7 +146,7 @@ const rain = () => {
     colorfulBall.classList.add("tennis-ball");
     colorfulBall.classList.add("small-ball");
     colorfulBall.style.background =
-      randomColors[Math.floor(Math.random() * Math.floor(5))];
+      randomColors[Math.floor(Math.random() * randomColors.length)];
     colorfulBall.style.top = "-25px";
     colorfulBall.style.left = `${Math.floor(
       Math.random() * Math.floor(window.innerWidth)
