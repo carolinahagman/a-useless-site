@@ -1,8 +1,7 @@
 <img src="assets/flora.JPG" align="center" height="400" width="400" >
 
 # a useless site
-
-## throw the ball
+Inspired by my dog
 
 The assignment was to build a useless website using only HTML, CSS and JavaScript. No third party libraries such as jQuery or React was allowed.
 
@@ -16,7 +15,7 @@ $ git clone https://github.com/carolinahagman/a-useless-site.git
 
 Open index.html in your preferred browser
 
-Or open the live verison [here](https://a-useless-site.vercel.app/)
+Or open the live verison [here](https://throw-the-ball.vercel.app/)
 
 ## My check list
 
