@@ -10,9 +10,7 @@ const main = document.querySelector("main");
 const body = document.querySelector("body");
 const backgroundColor = [
   "linear-gradient(162.61deg, #B0F3F1 -0.68%, #FFCFDF 100%)",
-  "linear-gradient(326deg, #F6FC9C 0%, #EAF818 74%)",
   "linear-gradient(to top left, #a8ceff 0%, #ff8ab3 81%)",
-  "linear-gradient(to bottom right, #a8ffae 0%, #fdff8a 81%)",
   "linear-gradient(315deg, #f39f86 0%, #f9d976 74%)",
 ];
 
@@ -141,7 +139,7 @@ const activateDog = () => {
 //create the falling tennis balls and randomize color, position, duration
 const rain = () => {
   const rainArray = [];
-  for (let index = 0; index < 150; index++) {
+  for (let index = 0; index < 250; index++) {
     const colorfulBall = document.createElement("div");
     colorfulBall.classList.add("tennis-ball");
     colorfulBall.classList.add("small-ball");
@@ -164,6 +162,47 @@ const rain = () => {
     });
   }, 6000);
 };
+
+// the new version. hope it works
+// const rain = () => {
+//   const canvas = document.createElement("canvas");
+//   main.appendChild("canvas");
+//   const ctx = canvas.getContext("2d");
+//   const particlesOnScreen = 245;
+//   const particlesArray = [];
+//   const w, h;
+//   w = canvas.width = window.innerWidth;
+//   h = canvas.height = window.innerHeight;
+
+//   function random(min, max) {
+//     return min + Math.random() * (max - min + 1);
+//   }
+
+//   for (let index = 0; index < particlesOnScreen; index++) {
+//     particlesArray.push({
+//       x: Math.random() * w,
+//       y: Math.random() * h,
+//       speedX: random(-11, 11),
+//       speedY: random(7, 15),
+//       radius: 0.5,
+//     });
+//   }
+
+//   function drawSnowFlakes() {
+//     for (let index = 0; index < particlesArray.length; index++) {
+//       const gradient = ctx.createRadialGradient(
+//         particlesArray[i].x,
+//         particlesArray[i].y,
+//         0,
+//         particlesArray[i].x,
+//         particlesArray[i].y,
+//         particlesArray[i].radius
+//       );
+//       gradient.addColorStop(0,);
+//     }
+//   }
+// };
+
 button.addEventListener("click", () => {
   rain();
   sound.play();
