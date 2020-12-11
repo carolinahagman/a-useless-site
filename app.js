@@ -1,6 +1,6 @@
 "use strict";
 
-const ball = document.querySelector("#main-ball");
+const ball = document.querySelector(".tennis-ball");
 const instruction = document.querySelector("#instruction");
 const button = document.querySelector("#primary-btn");
 const sittingDog = document.querySelector("#dog-sitting");
@@ -138,7 +138,6 @@ const activateDog = () => {
 
 //create the falling tennis balls and randomize color, position, duration
 const rain = () => {
-  // const particle1 = new Particle(500, 100);
   const rainArray = [];
   for (let index = 0; index < 250; index++) {
     const colorfulBall = document.createElement("div");
@@ -178,7 +177,6 @@ class Particle {
     this.animationDelay = animationDelay;
     this.animationStarted = false;
     this.color = color;
-    // console.log(this);
   }
   update() {
     setTimeout(() => {
@@ -194,7 +192,7 @@ class Particle {
     ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    // ctx.arc(this.x+2,)
+
     ctx.closePath();
     ctx.fill();
   }
@@ -209,9 +207,7 @@ function init() {
       randomColors[Math.floor(Math.random() * randomColors.length)],
       Math.max(Math.random() * 25, 10)
     );
-    // animate();
   }
-  console.log(ballArray.length);
 }
 
 function animate() {
@@ -226,7 +222,6 @@ animate();
 
 button.addEventListener("click", () => {
   init();
-  // rain();
 
   sound.play();
 });
