@@ -64,8 +64,8 @@ button:focus {
 
 .tennis-ball {
   background: #c9f364;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   border-radius: 50%;
   overflow: hidden;
@@ -120,16 +120,17 @@ button:focus {
   }
 
   .tennis-ball {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
   }
 
   #instruction {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   #primary-btn {
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 450px;
+    left: calc(50% - 225px);
   }
 }
 

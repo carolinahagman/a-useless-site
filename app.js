@@ -50,8 +50,7 @@ const dragBall = (e) => {
   pos3 = e.clientX;
   pos4 = e.clientY;
   // set the element's new position and stay inside the window
-  console.log(ball.offsetTop - pos2);
-  console.log(window.innerHeight);
+
   ball.style.top =
     ball.offsetTop - pos2 > 0
       ? ball.offsetTop - pos2 < window.innerHeight - 50
