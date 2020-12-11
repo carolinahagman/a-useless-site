@@ -43,9 +43,9 @@ Or open the live verison [here](https://throw-the-ball.vercel.app/)
   - [x] randomize position
   - [x] randomize velocity
   
-  ### backlog
-  - [ ] ball should maintain velocity when "thrown"
-  - [ ] bounce in a mirrored direction
+### backlog
+ - [ ] ball should maintain velocity when "thrown
+ - [ ] bounce in a mirrored direction
 
 ## Author
 
