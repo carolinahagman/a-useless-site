@@ -116,7 +116,7 @@ button:focus {
 @media (min-width: 1200px) {
   .dog-container {
     height: 200px;
-    width: 210px;
+    width: 200px;
   }
 
   .tennis-ball {

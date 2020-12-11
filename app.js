@@ -224,10 +224,10 @@ button.addEventListener("click", () => {
 
   sound.play();
 });
-button.addEventListener("touchstart", () => {
-  init();
-  sound.play();
-});
+// button.addEventListener("touchstart", () => {
+//   init();
+//   sound.play();
+// });
 
 // on desktop
 ball.addEventListener("mousedown", (e) => {
