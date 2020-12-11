@@ -1,6 +1,7 @@
 <img src="assets/flora.JPG" align="center" height="400" width="400" >
 
 # a useless site
+
 Inspired by my dog
 
 The assignment was to build a useless website using only HTML, CSS and JavaScript. No third party libraries such as jQuery or React was allowed.
@@ -42,10 +43,11 @@ Or open the live verison [here](https://throw-the-ball.vercel.app/)
   - [x] make the balls random colors
   - [x] randomize position
   - [x] randomize velocity
-  
+
 ### backlog
- - [ ] ball should maintain velocity when "thrown
- - [ ] bounce in a mirrored direction
+
+- [ ] ball should maintain velocity when "thrown
+- [ ] bounce in a mirrored direction
 
 ## Author
 
@@ -53,5 +55,5 @@ Or open the live verison [here](https://throw-the-ball.vercel.app/)
 
 ## Testers
 
--
--
+- [Joakim Sjögren](https://github.com/JoakimSjogren)
+- [Reka Madarasz](https://github.com/mreka91)
