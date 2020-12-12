@@ -41,6 +41,11 @@ window.addEventListener("load", () => {
     backgroundColor[Math.floor(Math.random() * backgroundColor.length)];
 });
 
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
 //make the ball draggable
 const dragBall = (e) => {
   e.preventDefault();
@@ -136,30 +141,6 @@ const activateDog = () => {
 };
 
 //create the falling tennis balls and randomize color, position, duration
-const rain = () => {
-  const rainArray = [];
-  for (let index = 0; index < 250; index++) {
-    const colorfulBall = document.createElement("div");
-    colorfulBall.classList.add("tennis-ball");
-    colorfulBall.classList.add("small-ball");
-    colorfulBall.style.background =
-      randomColors[Math.floor(Math.random() * randomColors.length)];
-    colorfulBall.style.top = "-25px";
-    colorfulBall.style.left = `${Math.floor(
-      Math.random() * Math.floor(window.innerWidth)
-    )}px`;
-    colorfulBall.style.animationDelay = `${Math.random() * 1.9}s`;
-    colorfulBall.style.animationDuration = `${1}s`;
-    main.appendChild(colorfulBall);
-    rainArray.push(colorfulBall);
-  }
-  setTimeout(() => {
-    rainArray.forEach((el) => {
-      el.remove();
-    });
-  }, 6000);
-};
-
 const canvas = document.createElement("canvas");
 main.appendChild(canvas);
 const ctx = canvas.getContext("2d");
