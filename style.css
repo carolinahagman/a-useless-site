@@ -8,6 +8,7 @@
   --font: JosefinSans;
   --font-color: #212121;
   --btn-color: #f1f456;
+  --ball-color: #c9f364;
 }
 
 * {
@@ -63,7 +64,7 @@ button:focus {
 }
 
 .tennis-ball {
-  background: #c9f364;
+  background: var(--ball-color);
   width: 30px;
   height: 30px;
   position: absolute;
@@ -71,6 +72,7 @@ button:focus {
   overflow: hidden;
   top: 55%;
   right: 25%;
+  z-index: 10;
 }
 
 .tennis-ball:before {

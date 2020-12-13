@@ -55,7 +55,6 @@ const dragBall = (e) => {
   pos3 = e.clientX;
   pos4 = e.clientY;
   // set the element's new position and stay inside the window
-
   ball.style.top =
     ball.offsetTop - pos2 > 0
       ? ball.offsetTop - pos2 < window.innerHeight - 50
@@ -63,8 +62,8 @@ const dragBall = (e) => {
         : `${window.innerHeight - 50}px`
       : "0px";
   ball.style.left =
-    ball.offsetLeft - pos1 > 0
-      ? ball.offsetLeft - pos1 < window.innerWidth - 50
+    ball.offsetLeft - pos1 > 30
+      ? ball.offsetLeft - pos1 < window.innerWidth - 30
         ? ball.offsetLeft - pos1 + "px"
         : `${window.innerWidth - 50}px`
       : "0px";
@@ -202,13 +201,8 @@ animate();
 
 button.addEventListener("click", () => {
   init();
-
   sound.play();
 });
-// button.addEventListener("touchstart", () => {
-//   init();
-//   sound.play();
-// });
 
 // on desktop
 ball.addEventListener("mousedown", (e) => {
