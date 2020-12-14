@@ -80,7 +80,6 @@ const dragBallMobile = (e) => {
 };
 //make the dog chase after the ball
 const activateDog = () => {
-  // toySquek.play();
   toySquek.src = "/assets/toy.mp3";
   let movingX = false;
   let movingY = false;
@@ -93,7 +92,7 @@ const activateDog = () => {
       const dogPosTop = dogContainer.offsetTop;
       const dogPosLeft = dogContainer.offsetLeft;
 
-      if (ballPosLeft - dogPosLeft > 40 || ballPosLeft - dogPosLeft < -30) {
+      if (ballPosLeft - dogPosLeft > 200 || ballPosLeft - dogPosLeft < -30) {
         sittingDog.style.display = "none";
         standingDog.style.display = "block";
         dogContainer.style.left =
