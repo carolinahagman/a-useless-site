@@ -92,7 +92,7 @@ const activateDog = () => {
       const dogPosTop = dogContainer.offsetTop;
       const dogPosLeft = dogContainer.offsetLeft;
 
-      if (ballPosLeft - dogPosLeft > 200 || ballPosLeft - dogPosLeft < -30) {
+      if (ballPosLeft - dogPosLeft > 100 || ballPosLeft - dogPosLeft < -30) {
         sittingDog.style.display = "none";
         standingDog.style.display = "block";
         dogContainer.style.left =
